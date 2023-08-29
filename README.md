@@ -13,7 +13,9 @@ Standard brain atlases supported:
 `AAL1_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100_MNI`,  `schaefer200_MNI` , `schaefer400_MNI`,  `schaefer1000_MNI`, `PD25_MNI`
 
 [BIDS-fMRIpost 中文说明](resources/README_Chs.md)
+
 Check details in bids-fmripost [brain atlases](resources/atlases.md)
+
 Check bids-fmripost version history in [Change Log](resources/CHANGELOG.md)
 
 ## Contents
