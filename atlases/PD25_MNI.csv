@@ -1,0 +1,17 @@
+Index,Name,Full_Name,Intensity,Space,Hemi
+1,RN_L,Left red nucleus,1,MNI,L
+2,RN_R,Right red nucleus,2,MNI,R
+3,SN_L,Left substantia nigra,3,MNI,L
+4,SN_R,Right Substantia nigra,4,MNI,R
+5,STN_L,Left subthalamic nucleus,5,MNI,L
+6,STN_R,Right subthalamic nucleus,6,MNI,R
+7,Caud_L,Left caudate,7,MNI,L
+8,Caud_R,Right caudate,8,MNI,R
+9,Put_L,Left putamen,9,MNI,L
+10,Put_R,Right putamen,10,MNI,R
+11,GPe_L,Left globus pallidus externa ,11,MNI,L
+12,GPe_R,Right globus pallidus externa ,12,MNI,R
+13,GPi_L,Left globus pallidus interna ,13,MNI,L
+14,GPi_R,Right globus pallidus interna ,14,MNI,R
+15,Thalam_L,Left thalamus,15,MNI,L
+16,Thalam_R,Right thalamus,16,MNI,R
