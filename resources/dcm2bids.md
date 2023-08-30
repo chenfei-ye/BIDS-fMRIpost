@@ -65,9 +65,13 @@ grep  "SeriesDescription"  tmp_dcm2bids/helper/*.json
 ```
 通常我们关注的一些常用MRI影像模态的序列名可能包含的字符串：
 > T1w: *mpr*|.*mp-rage*|.*T1W*|.*SPGR*|.*3D BRAVO*|.*T1W_3D_TFE*
+> 
 > T2w: T2w | *dual*
+> 
 > FLAIR: *FLAIR*| *T2Flair*
+> 
 > dwi: ep2d_diff_*|.*ep2d_DTI
+> 
 > bold: ep2d_bold*|.*bold
 
 4. 根据配置文件，对每个被试的数据进行转档：
