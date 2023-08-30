@@ -41,7 +41,7 @@ docker build -t bids-fmripost:latest .
 ## Before Running
 use [fMRIPrep](https://fmriprep.org/en/stable/installation.html) for fMRI data preprocessing
 ```
-docker run -it --rm <local_bids_dir>:/bids_dataset \
+docker run -it --rm <bids_root>:/bids_dataset \
 -v <local_license_dir>/freesurfer_license.txt:/opt/freesurfer/license.txt \
 -v <local_working_dir>:/working_dir nipreps/fmriprep:latest \
 /bids_dataset /bids_dataset/derivatives/fmriprep participant \ 

@@ -11,15 +11,23 @@
 
 目前主要用于静息态功能磁共振影像数据的脑网络分析。该脚本的输入数据需符合[BIDS格式](https://bids.neuroimaging.io/)，输入模态需包括3D-T1w和fMRI。目前支持的图谱包括：
 `AAL1_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100_MNI`,  `schaefer200_MNI` , `schaefer400_MNI`,  `schaefer1000_MNI`, `PD25_MNI`
+
 [图谱说明](atlases.md)
+
 [版本历史](CHANGELOG.md)
 
 ## 本页内容
+* [数据准备](#数据准备)
 * [安装](#安装)
 * [运行前准备](#运行前准备)
 * [运行](#运行)
 * [参数说明](#参数说明)
 * [输出结果](#输出结果)
+
+## 数据准备
+数据需要符合[Brain Imaging Data Structure](http://bids.neuroimaging.io/) (BIDS)格式。对于`DICOM`数据文件，建议使用[dcm2bids](https://unfmontreal.github.io/Dcm2Bids)工具进行转档，参考[dcm2bids 转档中文简易使用说明](dcm2bids.md)
+
+
 
 ## 安装
 本地需安装[docker](https://docs.docker.com/engine/install)，具体可参考[步骤](docker_install.md)

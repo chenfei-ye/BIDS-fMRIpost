@@ -1,0 +1,63 @@
+{
+  "search_method": "fnmatch",
+  "descriptions": [
+	{
+      "datatype": "anat",
+      "suffix": "T1w",
+      "criteria": {
+        "SeriesDescription": "*T1BRAVO*"
+      },
+      "sidecar_changes": {
+        "ProtocolName": "T1w"
+      }
+    },
+	{
+      "datatype": "anat",
+      "suffix": "T2w",
+      "criteria": {
+        "SeriesDescription": "*CUBE T2*"
+      },
+      "sidecar_changes": {
+        "ProtocolName": "T2w"
+      }
+    },
+	{
+      "datatype": "anat",
+      "suffix": "FLAIR",
+      "criteria": {
+        "SeriesDescription": "OAx T2Flair*"
+      }
+    },
+    {
+      "datatype": "func",
+      "suffix": "bold",
+      "custom_entities": "task-rest",
+      "criteria": {
+        "SeriesDescription": "*BOLD*"
+      },
+	  "sidecar_changes": {
+		"TaskName": "rest"
+      }
+    },
+	{
+      "datatype": "fmap",
+      "suffix": "fmap",
+      "criteria": {
+        "ProtocolName": "*field_mapping*"
+      },
+      "sidecar_changes": {
+        "IntendedFor": "task_rest"
+      }
+    },
+    {
+      "datatype": "dwi",
+      "suffix": "dwi",
+      "criteria": {
+        "SeriesDescription": "*DTI*"
+      },
+      "sidecar_changes": {
+        "ProtocolName": "dwi"
+      }
+    }
+  ]
+}
