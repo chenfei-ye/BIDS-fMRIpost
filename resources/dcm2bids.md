@@ -54,16 +54,17 @@ dcm2bids_scaffold -o bids_root
 ```
 - `-o [str]`: 输出目录的路径，可自行命名
 
-2. 将输入`DICOM`文件目录中的影像数据，转档到临时目录`tmp_dcm2bids/helper`:
+2. 将输入`DICOM`文件目录`input_dir`中的影像数据，转档到临时目录`tmp_dcm2bids/helper`:
 ```
-# 其中input_dir是输入文件目录
 dcm2bids_helper  -d  input_dir 
 ```
-3. 查看`nifti`文件包含的所有序列名，并相应**手动修改`dcm2bids_config.json`内容**：
+3. 查看`nifti`文件包含的所有序列名：
 ```
 grep  "SeriesDescription"  tmp_dcm2bids/helper/*.json
 ```
-通常我们关注的一些常用MRI影像模态的序列名可能包含的字符串：
+基于返回的序列名，**手动修改`dcm2bids_config.json`内容**。
+
+部分常用MRI影像模态的序列名，可能包含的字符串：
 > T1w: *mpr*|.*mp-rage*|.*T1W*|.*SPGR*|.*3D BRAVO*|.*T1W_3D_TFE*
 > 
 > T2w: T2w | *dual*
@@ -74,7 +75,7 @@ grep  "SeriesDescription"  tmp_dcm2bids/helper/*.json
 > 
 > bold: ep2d_bold*|.*bold
 
-4. 根据配置文件，对每个被试的数据进行转档：
+4. 根据配置文件，对每个被试的数据进行转档（以`sub-001`为例）：
 ```
 dcm2bids -d input_dir -p 001 -c code/dcm2bids_config.json --auto_extract_entities
 ```
