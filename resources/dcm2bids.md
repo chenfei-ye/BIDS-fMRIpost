@@ -54,7 +54,7 @@ dcm2bids_scaffold -o bids_root
 ```
 - `-o [str]`: 输出目录的路径，可自行命名
 
-2. 将输入`DICOM`文件目录`input_dir`中的影像数据，转档到临时目录`tmp_dcm2bids/helper`:
+2. 将**单个被试的**输入`DICOM`文件目录`input_dir`中的影像数据，转档到临时目录`tmp_dcm2bids/helper`:
 ```
 dcm2bids_helper  -d  input_dir 
 ```
@@ -79,8 +79,14 @@ grep  "SeriesDescription"  tmp_dcm2bids/helper/*.json
 ```
 dcm2bids -d input_dir -p 001 -c code/dcm2bids_config.json --auto_extract_entities
 ```
+5. 对下个被试数据重复步骤2 ~ 步骤4
 
-5. 删掉临时文件目录
+6. 删掉临时文件目录
 ```
 rm -rf bids_root/tmp_dcm2bids
+```
+
+7. 检验是否通过BIDS标准，根据报错信息进行修改
+```
+docker run -ti --rm -v bids_root:/data:ro bids/validator /data
 ```
