@@ -47,7 +47,7 @@ docker build -t bids-fmripost:latest .
 ## 运行前准备
 使用[fMRIPrep](https://fmriprep.org/en/stable/installation.html) 进行预处理
 ```
-docker run -it --rm <local_bids_dir>:/bids_dataset \
+docker run -it --rm -v <local_bids_dir>:/bids_dataset \
 -v <local_license_dir>/freesurfer_license.txt:/opt/freesurfer/license.txt \
 -v <local_working_dir>:/working_dir nipreps/fmriprep:latest \
 /bids_dataset /bids_dataset/derivatives/fmriprep participant \ 
