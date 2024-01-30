@@ -7,6 +7,9 @@
 - `desikan_T1w`：Desikan-Killiany Atlas (?h.aparc.annot) included inside FreeSurfer
 - `destrieux_T1w`: Destrieux Atlas (?h.aparc.a2009s.annot) Atlas (?h.aparc.annot) included inside FreeSurfer
 - `hcpmmp_T1w` : HCP-MMP1.0 parcellation by [Glasser et al. (Nature)](http://www.nature.com/nature/journal/v536/n7615/full/nature18933.html). See details [here](https://cjneurolab.org/2016/11/22/hcp-mmp1-0-volumetric-nifti-masks-in-native-structural-space/).
+- `schaefer100_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution
+- `schaefer200_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution
+- `schaefer400_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution
 - `schaefer100_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution
 - `schaefer200_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution
 - `schaefer400_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution

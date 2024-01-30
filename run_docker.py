@@ -3,13 +3,15 @@
 """
 @author: Chenfei
 @contact:chenfei.ye@foxmail.com
-@version: 1.2
+@version: 1.3
 @file: run.py
-@time: 2023/08/27
+@time: 2024/01/30
 # postprocess after fmriprep
+# added Schaefer100/200/400 T1w space
+# added PD25 atlas
 # BOLD time_series and FC matrix as csv files would be produced
 """
-__version__ = 'v1.2'
+__version__ = 'v1.3'
 from loguru import logger
 import argparse
 import os
@@ -387,6 +389,36 @@ for subject_label in subjects_to_analyze:
             parc_lut_file = os.path.join(mrtrix_lut_dir, 'hcpmmp1_original.txt')
             mrtrix_lut_file = os.path.join(mrtrix_lut_dir, 'hcpmmp1_ordered.txt')
             parc_T1w_nii_path = os.path.join(fmripost_sub_dir, subject_name + '_T1w_hcpmmp.nii.gz')
+
+        elif atlas_name == 'schaefer100_T1w':
+            parc_native_path = os.path.join(freesurfer_path, 'mri', 'aparc.schaefer100+aseg.mgz')
+            if not os.path.exists(parc_native_path):
+                logger.error('Failed to detect ' + parc_native_path + ', should run docker image bids-freesurfer /surf_conv.py first')
+                raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+            
+            parc_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer100_original.txt')
+            mrtrix_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer100_ordered.txt')
+            parc_T1w_nii_path = os.path.join(fmripost_sub_dir, subject_name + '_T1w_schaefer100.nii.gz')
+        
+        elif atlas_name == 'schaefer200_T1w':
+            parc_native_path = os.path.join(freesurfer_path, 'mri', 'aparc.schaefer200+aseg.mgz')
+            if not os.path.exists(parc_native_path):
+                logger.error('Failed to detect ' + parc_native_path + ', should run docker image bids-freesurfer /surf_conv.py first')
+                raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+            
+            parc_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer200_original.txt')
+            mrtrix_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer200_ordered.txt')
+            parc_T1w_nii_path = os.path.join(fmripost_sub_dir, subject_name + '_T1w_schaefer200.nii.gz')
+        
+        elif atlas_name == 'schaefer400_T1w':
+            parc_native_path = os.path.join(freesurfer_path, 'mri', 'aparc.schaefer400+aseg.mgz')
+            if not os.path.exists(parc_native_path):
+                logger.error('Failed to detect ' + parc_native_path + ', should run docker image bids-freesurfer /surf_conv.py first')
+                raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+            
+            parc_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer400_original.txt')
+            mrtrix_lut_file = os.path.join(mrtrix_lut_dir, 'schaefer400_ordered.txt')
+            parc_T1w_nii_path = os.path.join(fmripost_sub_dir, subject_name + '_T1w_schaefer400.nii.gz')
 
         if atlas_name.split('_')[1] == 'T1w':
             if not os.path.exists(freesurfer_path):

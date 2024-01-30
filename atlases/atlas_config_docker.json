@@ -43,6 +43,18 @@
     "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_hcpmmp.nii.gz",
     "sgm_lut": "/pipeline/atlases/hcpmmp_T1w.csv"
   },
+  "schaefer100_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer100.nii.gz",
+    "sgm_lut": "/pipeline/atlases/schaefer100_T1w.csv"
+  },
+  "schaefer200_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer200.nii.gz",
+    "sgm_lut": "/pipeline/atlases/schaefer200_T1w.csv"
+  },
+  "schaefer400_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer400.nii.gz",
+    "sgm_lut": "/pipeline/atlases/schaefer400_T1w.csv"
+  },
   "schaefer100_MNI": {
     "parc_nii": "/pipeline/atlases/schaefer100x7MNI.nii.gz",
     "sgm_lut": "/pipeline/atlases/schaefer100_MNI.csv"
