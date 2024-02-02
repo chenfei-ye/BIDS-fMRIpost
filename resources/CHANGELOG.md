@@ -1,5 +1,8 @@
 ## Master
-* Release v1.3
+* Release v1.4
+
+## Release v1.4
+* added schaefer x7/x17 atlas
 
 ## Release v1.3
 * added `schaefer100_T1w`, `schaefer200_T1w`, `schaefer400_T1w` atlas

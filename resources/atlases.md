@@ -4,17 +4,28 @@
 - `AAL1_MNI`：An automated anatomical parcellation of the spatially normalized single-subject high-resolution T1 volume provided by the Montreal Neurological Institute (MNI)
 - `AAL2_MNI`：New version of orbital frontal cortex parcelation, released on the 27th of August 2015
 - `AAL3_MNI`：New version of anterior cingulate, thalamus and brain nuclei (nucleus accumbens, substantia nigra, ventral tegmental area, red nucleus, locus coeruleus, and raphe nuclei), released on the 30th of August, 2019
+-   `schaefer100x7_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution with 7 networks
+-   `schaefer200x7_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution with 7 networks
+-   `schaefer400x7_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution with 7 networks
+-   `schaefer1000x7_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 1000-node resolution with 7 networks
+-   `schaefer100x17_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution with 17 networks
+-   `schaefer200x17_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution with 17 networks
+-   `schaefer400x17_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution with 17 networks
+-   `schaefer1000x17_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 1000-node resolution with 17 networks
+- `PD25_MNI`: This set of multi-contrast population-averaged PD brain atlas contains 5 different image contrasts: T1w ( FLASH & MPRAGE), T2 star, T1–T2 star fusion, phase, and an R2 star map. Probabilistic tissue maps of whiter matter, grey matter, and cerebrospinal fluid are provided for the atlas. We also manually segmented eight subcortical structures: caudate nucleus, putamen, globus pallidus internus and externus (GPi & GPe), thalamus, STN, substantia nigra (SN), and the red nucleus (RN).  See details [here](https://nist.mni.mcgill.ca/multi-contrast-pd25-atlas/)
+
 - `desikan_T1w`：Desikan-Killiany Atlas (?h.aparc.annot) included inside FreeSurfer
 - `destrieux_T1w`: Destrieux Atlas (?h.aparc.a2009s.annot) Atlas (?h.aparc.annot) included inside FreeSurfer
 - `hcpmmp_T1w` : HCP-MMP1.0 parcellation by [Glasser et al. (Nature)](http://www.nature.com/nature/journal/v536/n7615/full/nature18933.html). See details [here](https://cjneurolab.org/2016/11/22/hcp-mmp1-0-volumetric-nifti-masks-in-native-structural-space/).
-- `schaefer100_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution
-- `schaefer200_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution
-- `schaefer400_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution
-- `schaefer100_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution
-- `schaefer200_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution
-- `schaefer400_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution
-- `schaefer1000_MNI`: Multiscale local-global functional atlas from Schaefer and colleagues: 1000-node resolution
-- `PD25_MNI`: This set of multi-contrast population-averaged PD brain atlas contains 5 different image contrasts: T1w ( FLASH & MPRAGE), T2 star, T1–T2 star fusion, phase, and an R2 star map. Probabilistic tissue maps of whiter matter, grey matter, and cerebrospinal fluid are provided for the atlas. We also manually segmented eight subcortical structures: caudate nucleus, putamen, globus pallidus internus and externus (GPi & GPe), thalamus, STN, substantia nigra (SN), and the red nucleus (RN).  See details [here](https://nist.mni.mcgill.ca/multi-contrast-pd25-atlas/)
+-   `schaefer100x7_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution with 7 networks
+-   `schaefer200x7_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution with 7 networks
+-   `schaefer400x7_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution with 7 networks
+-   `schaefer1000x7_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 1000-node resolution with 7 networks
+-   `schaefer100x17_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 100-node resolution with 17 networks
+-   `schaefer200x17_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 200-node resolution with 17 networks
+-   `schaefer400x17_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 400-node resolution with 17 networks
+-   `schaefer1000x17_T1w`: Multiscale local-global functional atlas from Schaefer and colleagues: 1000-node resolution with 17 networks
+
 
 ## How to add new atlas in bids-fmripost?
 1. Before doing this, please make sure your new atlas is in MNI space

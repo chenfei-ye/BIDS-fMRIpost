@@ -1,0 +1,148 @@
+# Copyright (c) 2008-2021 the MRtrix3 contributors.
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#
+# Covered Software is provided under this License on an "as is"
+# basis, without warranty of any kind, either expressed, implied, or
+# statutory, including, without limitation, warranties that the
+# Covered Software is free of defects, merchantable, fit for a
+# particular purpose or non-infringing.
+# See the Mozilla Public License v. 2.0 for more details.
+#
+# For more details, see http://www.mrtrix.org/.
+
+
+# Subcortical parcellation according to the original FreeSurferColorLUT.txt
+# ID Labelname       R   G   B   A
+8    L_Cerebellum  230 148 34  255
+10   L_Thalamus      0 118 14  255
+11   L_Caudate     122 186 220 255
+12   L_Putamen     236 13  176 255
+13   L_Pallidum     12 48  255 255
+16   Brain-Stem    119 159 176 255
+17   L_Hippocampus 220 216 20  255
+18   L_Amygdala    103 255 255 255
+26   L_Accumbens   255 165 0   255
+28   L_VentralDC   165 42  42  255
+47   R_Cerebellum  230 148 34  255
+49   R_Thalamus      0 118 14  255
+50   R_Caudate     122 186 220 255
+51   R_Putamen     236 13  176 255
+52   R_Pallidum     13 48  255 255
+53   R_Hippocampus 220 216 20  255
+54   R_Amygdala    103 255 255 255
+58   R_Accumbens   255 165 0   255
+60   R_VentralDC   165 42  42  255
+
+# Cortical parcellation
+# ID Labelname  R   G   B   A
+1000	UNKNOWN1	0	0	0	0
+1001	LH_VisCent_ExStr_1	63	5	255	255
+1002	LH_VisCent_ExStr_2	54	103	129	255
+1003	LH_VisCent_ExStr_3	62	78	178	255
+1004	LH_VisCent_ExStr_4	23	50	233	255
+1005	LH_VisPeri_ExStrInf_1	15	40	226	255
+1006	LH_VisPeri_ExStrInf_2	14	28	214	255
+1007	LH_VisPeri_ExStrInf_3	26	47	201	255
+1008	LH_SomMotA_1	33	178	20	255
+1009	LH_SomMotA_2	35	205	21	255
+1010	LH_SomMotB_Aud_1	134	143	137	255
+1011	LH_SomMotB_Aud_2	141	166	152	255
+1012	LH_SomMotB_Aud_3	62	88	47	255
+1013	LH_SomMotB_Aud_4	7	57	246	255
+1014	LH_DorsAttnA_SPL_1	153	64	133	255
+1015	LH_DorsAttnA_SPL_2	186	86	188	255
+1016	LH_DorsAttnA_SPL_3	18	70	195	255
+1017	LH_DorsAttnB_PostC_1	57	114	160	255
+1018	LH_DorsAttnB_PostC_2	57	89	117	255
+1019	LH_DorsAttnB_PostC_3	25	47	206	255
+1020	LH_DorsAttnB_FEF_1	0	49	184	255
+1021	LH_SalVentAttnA_ParOper_1	18	33	181	255
+1022	LH_SalVentAttnA_Ins_1	34	43	171	255
+1023	LH_SalVentAttnA_Ins_2	31	86	104	255
+1024	LH_SalVentAttnA_ParMed_1	235	19	47	255
+1025	LH_SalVentAttnA_FrMed_1	122	79	56	255
+1026	LH_SalVentAttnB_PFCl_1	31	49	22	255
+1027	LH_SalVentAttnB_PFCmp_1	138	128	153	255
+1028	LH_Limbic_OFC_1	142	87	76	255
+1029	LH_Limbic_TempPole_1	149	181	188	255
+1030	LH_Limbic_TempPole_2	42	31	44	255
+1031	LH_ContA_IPS_1	81	54	98	255
+1032	LH_ContA_PFCl_1	127	56	91	255
+1033	LH_ContA_PFCl_2	29	0	14	255
+1034	LH_ContB_PFClv_1	63	17	47	255
+1035	LH_ContC_pCun_1	54	11	42	255
+1036	LH_ContC_pCun_2	48	163	48	255
+1037	LH_ContC_Cingp_1	153	172	136	255
+1038	LH_DefaultA_PFCd_1	205	190	194	255
+1039	LH_DefaultA_PCC_1	64	154	64	255
+1040	LH_DefaultA_PFCm_1	69	161	44	255
+1041	LH_DefaultB_Temp_1	119	159	66	255
+1042	LH_DefaultB_Temp_2	115	194	134	255
+1043	LH_DefaultB_IPL_1	110	146	86	255
+1044	LH_DefaultB_PFCd_1	144	179	135	255
+1045	LH_DefaultB_PFCl_1	184	243	224	255
+1046	LH_DefaultB_PFCv_1	169	246	237	255
+1047	LH_DefaultB_PFCv_2	68	177	108	255
+1048	LH_DefaultC_Rsp_1	63	113	158	255
+1049	LH_DefaultC_PHC_1	50	129	137	255
+1050	LH_TempPar_1	136	206	204	255
+
+					
+2000	UNKNOWN2	0	0	0	0
+2001	RH_VisCent_ExStr_1	63	5	255	255
+2002	RH_VisCent_ExStr_2	54	103	129	255
+2003	RH_VisCent_ExStr_3	62	78	178	255
+2004	RH_VisPeri_ExStrSup_1	23	50	233	255
+2005	RH_VisPeri_ExStrSup_2	15	40	226	255
+2006	RH_VisPeri_ExStrSup_3	14	28	214	255
+2007	RH_SomMotA_1	26	47	201	255
+2008	RH_SomMotA_2	33	178	20	255
+2009	RH_SomMotA_3	35	205	21	255
+2010	RH_SomMotA_4	134	143	137	255
+2011	RH_SomMotB_S2_1	141	166	152	255
+2012	RH_SomMotB_S2_2	62	88	47	255
+2013	RH_SomMotB_S2_3	7	57	246	255
+2014	RH_SomMotB_S2_4	153	64	133	255
+2015	RH_DorsAttnA_SPL_1	186	86	188	255
+2016	RH_DorsAttnA_SPL_2	18	70	195	255
+2017	RH_DorsAttnA_SPL_3	57	114	160	255
+2018	RH_DorsAttnB_PostC_1	57	89	117	255
+2019	RH_DorsAttnB_PostC_2	25	47	206	255
+2020	RH_DorsAttnB_FEF_1	0	49	184	255
+2021	RH_SalVentAttnA_ParOper_1	18	33	181	255
+2022	RH_SalVentAttnA_Ins_1	34	43	171	255
+2023	RH_SalVentAttnA_FrMed_1	31	86	104	255
+2024	RH_SalVentAttnA_FrMed_2	235	19	47	255
+2025	RH_SalVentAttnB_IPL_1	122	79	56	255
+2026	RH_SalVentAttnB_PFCl_1	31	49	22	255
+2027	RH_SalVentAttnB_PFCmp_1	138	128	153	255
+2028	RH_Limbic_OFC_1	142	87	76	255
+2029	RH_Limbic_TempPole_1	149	181	188	255
+2030	RH_ContA_IPS_1	42	31	44	255
+2031	RH_ContA_PFCl_1	81	54	98	255
+2032	RH_ContA_PFCl_2	127	56	91	255
+2033	RH_ContB_Temp_1	29	0	14	255
+2034	RH_ContB_IPL_1	63	17	47	255
+2035	RH_ContB_PFCld_1	54	11	42	255
+2036	RH_ContB_PFClv_1	48	163	48	255
+2037	RH_ContC_pCun_1	153	172	136	255
+2038	RH_ContC_pCun_2	205	190	194	255
+2039	RH_DefaultA_IPL_1	64	154	64	255
+2040	RH_DefaultA_PFCd_1	69	161	44	255
+2041	RH_DefaultA_PCC_1	119	159	66	255
+2042	RH_DefaultA_PFCm_1	115	194	134	255
+2043	RH_DefaultB_PFCd_1	110	146	86	255
+2044	RH_DefaultB_PFCv_1	144	179	135	255
+2045	RH_DefaultB_PFCv_2	184	243	224	255
+2046	RH_DefaultC_Rsp_1	169	246	237	255
+2047	RH_DefaultC_PHC_1	68	177	108	255
+2048	RH_TempPar_1	63	113	158	255
+2049	RH_TempPar_2	50	129	137	255
+2050	RH_TempPar_3	136	206	204	255
+
+
+
+
