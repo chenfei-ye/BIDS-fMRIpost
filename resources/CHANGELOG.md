@@ -1,5 +1,8 @@
 ## Master
-* Release v1.4
+* Release v1.5
+
+## Release v1.5
+* added RAS coordinate for each atlas lookuptable csv file
 
 ## Release v1.4
 * added schaefer x7/x17 atlas
