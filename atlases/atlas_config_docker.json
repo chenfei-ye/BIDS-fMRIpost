@@ -15,6 +15,10 @@
     "parc_nii": "/pipeline/atlases/PD25_MNI.nii.gz",
     "sgm_lut": "/pipeline/atlases/PD25_MNI.csv"
   },
+  "AAL1ctx_MNI": {
+    "parc_nii": "/pipeline/atlases/AAL1ctx_MNI.nii.gz",
+    "sgm_lut": "/pipeline/atlases/AAL1ctx_MNI.csv"
+  },
   "AAL1PD25_MNI": {
     "parc_nii": "/pipeline/atlases/AAL1PD25_MNI.nii.gz",
     "sgm_lut": "/pipeline/atlases/AAL1PD25_MNI.csv"

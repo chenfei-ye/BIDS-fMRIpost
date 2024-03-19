@@ -10,7 +10,7 @@
 - 功能连接网络计算 （FC network）
 
 目前主要用于静息态功能磁共振影像数据的脑网络分析。该脚本的输入数据需符合[BIDS格式](https://bids.neuroimaging.io/)，输入模态需包括3D-T1w和fMRI。目前支持的图谱包括：
-`AAL1_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100x7_T1w`,  `schaefer200x7_T1w` , `schaefer400x7_T1w`, `schaefer100x7_MNI`,  `schaefer200x7_MNI` , `schaefer400x7_MNI`,  `schaefer1000x7_MNI`, `schaefer100x17_T1w`,  `schaefer200x17_T1w` , `schaefer400x17_T1w`, `schaefer100x17_MNI`,  `schaefer200x17_MNI` , `schaefer400x17_MNI`,  `schaefer1000x17_MNI`, `PD25_MNI`
+`AAL1_MNI`, `AAL1ctx_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100x7_T1w`,  `schaefer200x7_T1w` , `schaefer400x7_T1w`, `schaefer100x7_MNI`,  `schaefer200x7_MNI` , `schaefer400x7_MNI`,  `schaefer1000x7_MNI`, `schaefer100x17_T1w`,  `schaefer200x17_T1w` , `schaefer400x17_T1w`, `schaefer100x17_MNI`,  `schaefer200x17_MNI` , `schaefer400x17_MNI`,  `schaefer1000x17_MNI`, `PD25_MNI`
 
 [图谱说明](atlases.md)
 

@@ -10,7 +10,7 @@
 Current version is only for resting-state fMRI data, the input data should be arranged according to [BIDS format](https://bids.neuroimaging.io/). Input image modalities must include 3D-T1w and fMRI data. 
 
 Standard brain atlases supported:
-`AAL1_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100x7_T1w`,  `schaefer200x7_T1w` , `schaefer400x7_T1w`, `schaefer100x7_MNI`,  `schaefer200x7_MNI` , `schaefer400x7_MNI`,  `schaefer1000x7_MNI`, `schaefer100x17_T1w`,  `schaefer200x17_T1w` , `schaefer400x17_T1w`, `schaefer100x17_MNI`,  `schaefer200x17_MNI` , `schaefer400x17_MNI`,  `schaefer1000x17_MNI`, `PD25_MNI`
+`AAL1_MNI`, `AAL1ctx_MNI`, `AAL2_MNI`, `AAL3_MNI`, `desikan_T1w`,  `destrieux_T1w`,  `hcpmmp_T1w` , `schaefer100x7_T1w`,  `schaefer200x7_T1w` , `schaefer400x7_T1w`, `schaefer100x7_MNI`,  `schaefer200x7_MNI` , `schaefer400x7_MNI`,  `schaefer1000x7_MNI`, `schaefer100x17_T1w`,  `schaefer200x17_T1w` , `schaefer400x17_T1w`, `schaefer100x17_MNI`,  `schaefer200x17_MNI` , `schaefer400x17_MNI`,  `schaefer1000x17_MNI`, `PD25_MNI`
 
 [BIDS-fMRIpost 中文说明](resources/README_Chs.md)
 

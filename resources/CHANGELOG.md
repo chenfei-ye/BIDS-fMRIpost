@@ -1,5 +1,8 @@
 ## Master
-* Release v1.5
+* Release v1.6
+
+## Release v1.6
+* added `AAL1ctx_MNI` atlas
 
 ## Release v1.5
 * added RAS coordinate for each atlas lookuptable csv file
