@@ -1,5 +1,8 @@
 ## Master
-* Release v1.6
+* Release v1.7
+
+## Release v1.7
+* added `JHUwm48_MNI` atlas
 
 ## Release v1.6
 * added `AAL1ctx_MNI` atlas

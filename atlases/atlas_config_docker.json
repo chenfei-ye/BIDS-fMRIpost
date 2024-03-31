@@ -35,6 +35,10 @@
     "parc_nii": "/pipeline/atlases/AAL1PD25-woSTN-GPi_MNI.nii.gz",
     "sgm_lut": "/pipeline/atlases/AAL1PD25-woSTN-GPi_MNI.csv"
   },
+  "JHUwm48_MNI": {
+    "parc_nii": "/pipeline/atlases/JHUwm48_MNI.nii.gz",
+    "sgm_lut": "/pipeline/atlases/JHUwm48_MNI.csv"
+  },
   "desikan_T1w": {
     "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_desikan.nii.gz",
     "sgm_lut": "/pipeline/atlases/desikan_T1w.csv"

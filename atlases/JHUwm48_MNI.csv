@@ -1,0 +1,49 @@
+Index,Name,Full_Name,Intensity,Space,Hemi,Region,R,A,S
+1,mcp,Middle cerebellar peduncle,1,MNI,NULL,WM,69,83,36
+2,pct,Pontine crossing tract (a part of MCP),2,MNI,NULL,WM,89,97,40
+3,gcc,Genu of corpus callosum,3,MNI,NULL,WM,93,152,77
+4,bcc,Body of corpus callosum,4,MNI,NULL,WM,95,100,97
+5,scc,Splenium of corpus callosum,5,MNI,NULL,WM,85,89,88
+6,fornix,Fornix,6,MNI,NULL,WM,89,116,88
+7,rh_cst,Corticospinal tract R,7,MNI,R,WM,82,103,43
+8,lh_cst,Corticospinal tract L,8,MNI,L,WM,97,103,43
+9,rh_mlemn,Medial lemniscus R,9,MNI,R,WM,84,89,40
+10,lh_mlemn,Medial lemniscus L,10,MNI,L,WM,95,89,40
+11,rh_icp,Inferior cerebellar peduncle R  ,11,MNI,R,WM,83,83,20
+12,lh_icp,Inferior cerebellar peduncle L,12,MNI,L,WM,96,83,20
+13,rh_scp,Superior cerebellar peduncle R,13,MNI,R,WM,84,93,53
+14,lh_scp,Superior cerebellar peduncle L,14,MNI,L,WM,95,93,53
+15,rh_cp,Cerebral peduncle R,15,MNI,R,WM,75,107,60
+16,lh_cp,Cerebral peduncle L,16,MNI,L,WM,104,107,60
+17,rh_alic,Anterior limb of internal capsule R,17,MNI,R,WM,75,129,79
+18,lh_alic,Anterior limb of internal capsule L,18,MNI,L,WM,104,129,79
+19,rh_plic,Posterior limb of internal capsule R,19,MNI,R,WM,66,108,85
+20,lh_plic,Posterior limb of internal capsule L,20,MNI,L,WM,113,108,85
+21,rh_ric,Retrolenticular part of internal capsule R,21,MNI,R,WM,61,101,78
+22,lh_ric,Retrolenticular part of internal capsule L,22,MNI,L,WM,117,101,78
+23,rh_acr,Anterior corona radiata R,23,MNI,R,WM,69,163,73
+24,lh_acr,Anterior corona radiata L,24,MNI,L,WM,110,163,73
+25,rh_acr,Superior corona radiata R,25,MNI,R,WM,63,109,96
+26,lh_acr,Superior corona radiata L,26,MNI,L,WM,116,109,96
+27,rh_pcr,Posterior corona radiata R,27,MNI,R,WM,64,99,99
+28,lh_pcr,Posterior corona radiata L,28,MNI,L,WM,115,99,99
+29,rh_ptr,Posterior thalamic radiation (include optic radiation) R,29,MNI,R,WM,57,64,73
+30,lh_ptr,Posterior thalamic radiation (include optic radiation) L,30,MNI,L,WM,122,64,73
+31,rh_sags,Sagittal stratum R,31,MNI,R,WM,48,97,60
+32,lh_sags,Sagittal stratum L,32,MNI,L,WM,131,97,60
+33,rh_exc,External capsule R,33,MNI,R,WM,56,111,71
+34,lh_exc,External capsule L,34,MNI,L,WM,123,111,71
+35,rh_ccg,Cingulum (cingulate gyrus) R,35,MNI,R,WM,83,132,105
+36,lh_ccg,Cingulum (cingulate gyrus) L,36,MNI,L,WM,97,110,108
+37,rh_chip,Cingulum (hippocampus) R,37,MNI,R,WM,66,101,53
+38,lh_chip,Cingulum (hippocampus) L,38,MNI,L,WM,112,99,54
+39,rh_forcr,Fornix (cres) / Stria terminalis R,39,MNI,R,WM,62,100,66
+40,lh_forcr,Fornix (cres) / Stria terminalis L,40,MNI,L,WM,117,100,66
+41,rh_slf,Superior longitudinal fasciculus R,41,MNI,R,WM,53,103,102
+42,lh_slf,Superior longitudinal fasciculus L,42,MNI,L,WM,126,103,102
+43,rh_sfof,Superior fronto-occipital fasciculus R,43,MNI,R,WM,69,121,93
+44,lh_sfof,Superior fronto-occipital fasciculus L,44,MNI,L,WM,110,121,93
+45,rh_uncf,Uncinate fasciculus R,45,MNI,R,WM,55,127,54
+46,lh_uncf,Uncinate fasciculus L,46,MNI,L,WM,123,125,58
+47,rh_tap,Tapetum R,47,MNI,R,WM,60,78,86
+48,lh_tap,Tapetum L,48,MNI,L,WM,117,76,87
