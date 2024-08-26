@@ -3,15 +3,16 @@
 """
 @author: Chenfei
 @contact:chenfei.ye@foxmail.com
-@version: 1.4
+@version: 1.8
 @file: run.py
-@time: 2024/02/02
+@time: 2024/08/25
 # postprocess after fmriprep
+# added multiple run support for bold
 # added Schaefer100/200/400/1000 T1w space
 # added PD25 atlas
 # BOLD time_series and FC matrix as csv files would be produced
 """
-__version__ = 'v1.3'
+__version__ = 'v1.8'
 from loguru import logger
 import argparse
 import os
@@ -147,106 +148,112 @@ def FC_atlas_calc(args, sub_bold_dir, atlas_config, atlas_name):
 
     # locate bold_space_T1w
     bold_space_T1w_path_ls = glob.glob(os.path.join(sub_bold_dir, '*space-T1w_desc-preproc_bold.nii.gz'))
-    if len(bold_space_T1w_path_ls) ==1:
-        bold_space_T1w_path = bold_space_T1w_path_ls[0]
-        bold_space_T1w_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_T1w_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
-        bold_space_T1w_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_T1w_path).split('space-T1w')[0] + 'space-T1w_boldref.nii.gz')
-    elif len(bold_space_T1w_path_ls) ==0:
+    # if len(bold_space_T1w_path_ls) ==1:
+    #     bold_space_T1w_path = bold_space_T1w_path_ls[0]
+    #     bold_space_T1w_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_T1w_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
+    #     bold_space_T1w_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_T1w_path).split('space-T1w')[0] + 'space-T1w_boldref.nii.gz')
+    if len(bold_space_T1w_path_ls) ==0:
         logger.warning('No space-T1w_desc-preproc_bold.nii.gz was found in directory ' + sub_bold_dir)
     else:
-        logger.error('Found multiple space-T1w_desc-preproc_bold.nii.gz in directory ' + sub_bold_dir)
-        raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+        # logger.error('Found multiple space-T1w_desc-preproc_bold.nii.gz in directory ' + sub_bold_dir)
+        # raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+        bold_space_T1w_path_ls.sort()
 
     # locate bold_space_MNI152NLin2009cAsym
     bold_space_MNI152NLin2009cAsym_path_ls = glob.glob(os.path.join(sub_bold_dir, '*space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz'))
-    if len(bold_space_MNI152NLin2009cAsym_path_ls) ==1:
-        bold_space_MNI152NLin2009cAsym_path = bold_space_MNI152NLin2009cAsym_path_ls[0]
-        bold_space_MNI152NLin2009cAsym_json_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('.')[0] + '.json')
-        bold_space_MNI152NLin2009cAsym_json = json.load(open(bold_space_MNI152NLin2009cAsym_json_path))
-        bold_space_MNI152NLin2009cAsym_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
-        bold_space_MNI152NLin2009cAsym_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('res-2')[0] + 'res-2_boldref.nii.gz')
-    elif len(bold_space_MNI152NLin2009cAsym_path_ls) ==0:
+    # if len(bold_space_MNI152NLin2009cAsym_path_ls) ==1:
+    #     bold_space_MNI152NLin2009cAsym_path = bold_space_MNI152NLin2009cAsym_path_ls[0]
+    #     bold_space_MNI152NLin2009cAsym_json_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('.')[0] + '.json')
+    #     bold_space_MNI152NLin2009cAsym_json = json.load(open(bold_space_MNI152NLin2009cAsym_json_path))
+    #     bold_space_MNI152NLin2009cAsym_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
+    #     bold_space_MNI152NLin2009cAsym_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_space_MNI152NLin2009cAsym_path).split('res-2')[0] + 'res-2_boldref.nii.gz')
+    if len(bold_space_MNI152NLin2009cAsym_path_ls) ==0:
         logger.warning('No space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz was found in directory ' + sub_bold_dir)
     else:
-        logger.error('Found multiple space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz in directory ' + sub_bold_dir)
-        raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
-    
-    # extract TR
-    try:
-        TR = bold_space_MNI152NLin2009cAsym_json['RepetitionTime']
-    except KeyError:
-        logger.warning('failed to find RepetitionTime value in BOLD json, using default RepetitionTime value (TR = 2.0 s)')
-        TR = 2.0
-    
-    if atlas_name.split('_')[-1] == 'T1w':
-        bold_path = bold_space_T1w_path
-        bold_mask_path = bold_space_T1w_mask_path
-        bold_img_ref_path = bold_space_T1w_ref_path
-    elif atlas_name.split('_')[-1] == 'MNI':
-        bold_path = bold_space_MNI152NLin2009cAsym_path
-        bold_mask_path = bold_space_MNI152NLin2009cAsym_mask_path
-        bold_img_ref_path = bold_space_MNI152NLin2009cAsym_ref_path
+        # logger.error('Found multiple space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz in directory ' + sub_bold_dir)
+        # raise MRtrixError('Failed to complete, please see fmripost_dir/runtime.log for details')
+        bold_space_MNI152NLin2009cAsym_path_ls.sort()
 
-    ## 协变量回归和平滑
-    bold_img_clean_masked_sm_path = os.path.join(fmripost_sub_dir, os.path.basename(bold_path).split('.')[0] + '_' + args.clean_type + '_sm' + str(args.sm) + '.nii.gz')
-    sample_mask = clean_and_smooth(bold_path, bold_mask_path, bold_img_clean_masked_sm_path, TR)
-    
-    ## 保存分割图png，用于QC
-    parc_nii_path = atlas_config[atlas_name]['parc_nii']
-    plotting.plot_roi(parc_nii_path, bg_img=bold_img_ref_path, title="parc", output_file = os.path.join(fmripost_sub_dir, subject_name + '_parc_' + atlas_name + '.png'))    
+    for i in range(len(bold_space_MNI152NLin2009cAsym_path_ls)):
+        if atlas_name.split('_')[-1] == 'T1w':
+            bold_path = bold_space_T1w_path_ls[i]
+            bold_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
+            bold_img_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_path).split('space-T1w')[0] + 'space-T1w_boldref.nii.gz')
+        elif atlas_name.split('_')[-1] == 'MNI':
+            bold_path = bold_space_MNI152NLin2009cAsym_path_ls[i]
+            bold_mask_path = os.path.join(sub_bold_dir, os.path.basename(bold_path).split('preproc_bold.nii.gz')[0] + 'brain_mask.nii.gz')
+            bold_img_ref_path = os.path.join(sub_bold_dir, os.path.basename(bold_mask_path).split('res-2')[0] + 'res-2_boldref.nii.gz')
+
+        bold_space_MNI152NLin2009cAsym_json_path = os.path.join(sub_bold_dir, os.path.basename(bold_path).split('.')[0] + '.json')
+        bold_space_MNI152NLin2009cAsym_json = json.load(open(bold_space_MNI152NLin2009cAsym_json_path))
+        # extract TR
+        try:
+            TR = bold_space_MNI152NLin2009cAsym_json['RepetitionTime']
+        except KeyError:
+            logger.warning('failed to find RepetitionTime value in BOLD json, using default RepetitionTime value (TR = 2.0 s)')
+            TR = 2.0
+        casename = os.path.basename(bold_path).split('_space')[0]
+
+        ## 协变量回归和平滑
+        bold_img_clean_masked_sm_path = os.path.join(fmripost_sub_dir, os.path.basename(bold_path).split('.')[0] + '_' + args.clean_type + '_sm' + str(args.sm) + '.nii.gz')
+        sample_mask = clean_and_smooth(bold_path, bold_mask_path, bold_img_clean_masked_sm_path, TR)
+        
+        ## 保存分割图png，用于QC
+        parc_nii_path = atlas_config[atlas_name]['parc_nii']
+        plotting.plot_roi(parc_nii_path, bg_img=bold_img_ref_path, title="parc", output_file = os.path.join(fmripost_sub_dir, casename + '_parc_' + atlas_name + '.png'))    
 
 
-    ## 计算BOLD time series为csv
-    masker = NiftiLabelsMasker(parc_nii_path, standardize=True, verbose=0)
-    if args.clean_mode == 'clean_img':
-        if args.no_sample_mask:
+        ## 计算BOLD time series为csv
+        masker = NiftiLabelsMasker(parc_nii_path, standardize=True, verbose=0)
+        if args.clean_mode == 'clean_img':
+            if args.no_sample_mask:
+                time_series = masker.fit_transform(bold_img_clean_masked_sm_path)
+            else:
+                time_series = masker.fit_transform(bold_img_clean_masked_sm_path, sample_mask=sample_mask)
+        elif args.clean_mode == 'clean_signal':
             time_series = masker.fit_transform(bold_img_clean_masked_sm_path)
-        else:
-            time_series = masker.fit_transform(bold_img_clean_masked_sm_path, sample_mask=sample_mask)
-    elif args.clean_mode == 'clean_signal':
-        time_series = masker.fit_transform(bold_img_clean_masked_sm_path)
-    if time_series.shape[1] != len(sgm_lut['Name']):
-        ## 处理节点missing的情况
-        parc_img = load_img(parc_nii_path)
-        atlas_values = set(get_data(parc_img).astype(int).ravel())
-        logger.warning("empty regions:", set(range(max(atlas_values) + 1)).difference(atlas_values))
-        logger.warning('WARNING: parcel number mismatch between time_series with LUT. Maybe after resampling the label image, some labels were removed')
-        logger.warning('see ref in https://neurostars.org/t/few-rois-timeseries-are-not-extracted-from-the-schaefer-atlas-using-nilearn/23467')
-        parc_nii = nib.load(parc_nii_path)
-        bold_img_clean_masked_sm = nib.load(bold_img_clean_masked_sm_path)
-        parc_resample_nii = resample_img(parc_nii, interpolation="nearest",target_shape=bold_img_clean_masked_sm.shape[:3],target_affine=bold_img_clean_masked_sm.affine)
-        labels_before_resampling = np.unique(parc_nii.get_fdata())[1:]
-        labels_after_resampling = np.unique(parc_resample_nii.get_fdata())[1:]
-        missing_label_intensity = list(set(labels_before_resampling).difference(set(labels_after_resampling)))
-        missing_label_atlas = [atlas_name] * len(missing_label_intensity)
-        ## 保存missing节点的信息
-        pd.DataFrame({'missing_nodes_intensity':missing_label_intensity, 'source':missing_label_atlas}).to_csv(os.path.join(fmripost_sub_dir, subject_name + '_parc_' + atlas_name + '_missing_nodes.csv'), index=False)
-        ## 把0值插入BOLD timeseries
-        time_series_new = np.zeros((time_series.shape[0],len(sgm_lut['Name'])))
-        ctx = 0
-        for idx in labels_after_resampling:
-            time_series_new[:,int(idx)-1] = time_series[:,ctx]
-            ctx = ctx + 1 
-        time_series = time_series_new
+        if time_series.shape[1] != len(sgm_lut['Name']):
+            ## 处理节点missing的情况
+            parc_img = load_img(parc_nii_path)
+            atlas_values = set(get_data(parc_img).astype(int).ravel())
+            logger.warning("empty regions:", set(range(max(atlas_values) + 1)).difference(atlas_values))
+            logger.warning('WARNING: parcel number mismatch between time_series with LUT. Maybe after resampling the label image, some labels were removed')
+            logger.warning('see ref in https://neurostars.org/t/few-rois-timeseries-are-not-extracted-from-the-schaefer-atlas-using-nilearn/23467')
+            parc_nii = nib.load(parc_nii_path)
+            bold_img_clean_masked_sm = nib.load(bold_img_clean_masked_sm_path)
+            parc_resample_nii = resample_img(parc_nii, interpolation="nearest",target_shape=bold_img_clean_masked_sm.shape[:3],target_affine=bold_img_clean_masked_sm.affine)
+            labels_before_resampling = np.unique(parc_nii.get_fdata())[1:]
+            labels_after_resampling = np.unique(parc_resample_nii.get_fdata())[1:]
+            missing_label_intensity = list(set(labels_before_resampling).difference(set(labels_after_resampling)))
+            missing_label_atlas = [atlas_name] * len(missing_label_intensity)
+            ## 保存missing节点的信息
+            pd.DataFrame({'missing_nodes_intensity':missing_label_intensity, 'source':missing_label_atlas}).to_csv(os.path.join(fmripost_sub_dir, casename + '_parc_' + atlas_name + '_missing_nodes.csv'), index=False)
+            ## 把0值插入BOLD timeseries
+            time_series_new = np.zeros((time_series.shape[0],len(sgm_lut['Name'])))
+            ctx = 0
+            for idx in labels_after_resampling:
+                time_series_new[:,int(idx)-1] = time_series[:,ctx]
+                ctx = ctx + 1 
+            time_series = time_series_new
 
-    pd.DataFrame(time_series, columns=sgm_lut['Name']).to_csv(os.path.join(fmripost_sub_dir, subject_name + '_BOLD_' + output_str + '.csv'))
-    logger.info('BOLD signals saved here ' + os.path.join(fmripost_sub_dir, subject_name + '_BOLD_' + output_str + '.csv'))
+        pd.DataFrame(time_series, columns=sgm_lut['Name']).to_csv(os.path.join(fmripost_sub_dir, casename + '_BOLD_' + output_str + '.csv'))
+        logger.info('BOLD signals saved here ' + os.path.join(fmripost_sub_dir, casename + '_BOLD_' + output_str + '.csv'))
 
-    ## 计算FC网络
-    cm = ConnectivityMeasure(kind='correlation')
-    corr_mat = cm.fit_transform([time_series])  # input = list with single matrix
-    corr_mat = corr_mat.squeeze()
-    np.fill_diagonal(corr_mat, 0)
+        ## 计算FC网络
+        cm = ConnectivityMeasure(kind='correlation')
+        corr_mat = cm.fit_transform([time_series])  # input = list with single matrix
+        corr_mat = corr_mat.squeeze()
+        np.fill_diagonal(corr_mat, 0)
 
-    ## 保存FC网络为csv
-    pd.DataFrame(corr_mat).to_csv(os.path.join(fmripost_sub_dir, subject_name + '_FC_mat_' + output_str + '.csv'), index=0,header=0)
-    logger.info('FC matrix saved here ' + os.path.join(fmripost_sub_dir, subject_name + '_FC_mat_' + output_str + '.csv'))
+        ## 保存FC网络为csv
+        pd.DataFrame(corr_mat).to_csv(os.path.join(fmripost_sub_dir, casename + '_FC_mat_' + output_str + '.csv'), index=0,header=0)
+        logger.info('FC matrix saved here ' + os.path.join(fmripost_sub_dir, casename + '_FC_mat_' + output_str + '.csv'))
 
-    ## 保存FC网络为png
-    import matplotlib.pyplot as plt
-    fig, ax = plt.subplots(figsize=(15, 15))
-    display = plotting.plot_matrix(corr_mat,labels=list(sgm_lut['Name']),vmax=0.8, vmin=-0.8,reorder=False,figure=fig)
-    plt.savefig(os.path.join(fmripost_sub_dir, subject_name + '_FC_mat_' + output_str + '.png'))
+        ## 保存FC网络为png
+        import matplotlib.pyplot as plt
+        fig, ax = plt.subplots(figsize=(15, 15))
+        display = plotting.plot_matrix(corr_mat,labels=list(sgm_lut['Name']),vmax=0.8, vmin=-0.8,reorder=False,figure=fig)
+        plt.savefig(os.path.join(fmripost_sub_dir, casename + '_FC_mat_' + output_str + '.png'))
     
 
 

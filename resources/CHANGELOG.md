@@ -1,5 +1,8 @@
 ## Master
-* Release v1.7
+* Release v1.8
+
+## Release v1.8
+* support multiple run
 
 ## Release v1.7
 * added `JHUwm48_MNI` atlas

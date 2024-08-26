@@ -1,0 +1,118 @@
+{
+  "AAL1_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1_MNI.csv"
+  },
+  "AAL2_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL2_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL2_MNI.csv"
+  },
+  "AAL3_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL3_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL3_MNI.csv"
+  },
+  "PD25_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/PD25_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/PD25_MNI.csv"
+  },
+  "AAL1ctx_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1ctx_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1ctx_MNI.csv"
+  },
+  "AAL1PD25_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25_MNI.csv"
+  },
+  "AAL1PD25-woGPi_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woGPi_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woGPi_MNI.csv"
+  },
+  "AAL1PD25-woSTN_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woSTN_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woSTN_MNI.csv"
+  },
+  "AAL1PD25-woSTN-GPi_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woSTN-GPi_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/AAL1PD25-woSTN-GPi_MNI.csv"
+  },
+  "JHUwm48_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/JHUwm48_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/JHUwm48_MNI.csv"
+  },
+  "desikan_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_desikan.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/desikan_T1w.csv"
+  },
+  "destrieux_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_destrieux.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/destrieux_T1w.csv"
+  },
+  "hcpmmp_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_hcpmmp.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/hcpmmp_T1w.csv"
+  },
+  "schaefer100x7_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer100x7.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x7_T1w.csv"
+  },
+  "schaefer100x17_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer100x17.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x17_T1w.csv"
+  },
+  "schaefer200x7_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer200x7.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x7_T1w.csv"
+  },
+  "schaefer200x17_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer200x17.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x17_T1w.csv"
+  },
+  "schaefer400x7_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer400x7.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x7_T1w.csv"
+  },
+  "schaefer400x17_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer400x17.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x17_T1w.csv"
+  },
+  "schaefer1000x7_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer1000x7.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x7_T1w.csv"
+  },
+  "schaefer1000x17_T1w": {
+    "parc_nii": "/data1/hit_data/PD_xw/HC/derivatives/fmripost/sub-001/sub-001_T1w_schaefer1000x17.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x17_T1w.csv"
+  },
+  "schaefer100x7_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x7_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x7_MNI.csv"
+  },
+  "schaefer100x17_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x17_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer100x17_MNI.csv"
+  },
+  "schaefer200x7_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x7_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x7_MNI.csv"
+  },
+  "schaefer200x17_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x17_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer200x17_MNI.csv"
+  },
+  "schaefer400x7_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x7_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x7_MNI.csv"
+  },
+  "schaefer400x17_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x17_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer400x17_MNI.csv"
+  },
+  "schaefer1000x7_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x7_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x7_MNI.csv"
+  },
+  "schaefer1000x17_MNI": {
+    "parc_nii": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x17_MNI.nii.gz",
+    "sgm_lut": "/data/cye_code/BIDS-fmripost/atlases/schaefer1000x17_MNI.csv"
+  }
+}
