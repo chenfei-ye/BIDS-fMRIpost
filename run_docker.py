@@ -5,7 +5,7 @@
 @contact:chenfei.ye@foxmail.com
 @version: 1.8
 @file: run.py
-@time: 2024/08/25
+@time: 2024/08/27
 # postprocess after fmriprep
 # added multiple run support for bold
 # added Schaefer100/200/400/1000 T1w space
@@ -492,45 +492,51 @@ for subject_label in subjects_to_analyze:
         FC_atlas_calc(args, sub_bold_dir, atlas_config, atlas_name)
         output_str_dict[atlas_name] = output_str
         logger.info('finished fmripost processing ' + subject_name + ' for ' + atlas_name)
-    
-    ## 对自定义图谱，汇总脑区BOLD信号，计算FC
-    BOLD_dict = {}
-    for atlas_name in atlases_ls:
-        BOLD_csv = os.path.join(fmripost_sub_dir, subject_name + '_BOLD_' + output_str_dict[atlas_name] + '.csv')
-        BOLD_dict[atlas_name] = pd.read_csv(BOLD_csv, index_col=0)
 
-    # 重组BOLD
-    if args.customized_atlas:
-        BOLD_mat = np.zeros((len(BOLD_dict[atlas_name]), len(atlas_df)))
-        for id in atlas_df['Index']:
-            node = atlas_df.loc[lambda x: x['Index'] == id]['Node']
-            source = atlas_df.loc[lambda x: x['Index'] == id]['Source']
-            BOLD_mat[:,id-1] = BOLD_dict[source.values[0]][node.values[0]]
 
-        ## 保存BOLD为csv
-        BOLD_csv_path = subject_name + '_BOLD_' + output_str_dict[atlas_name] + '.csv'
-        BOLD_csv_path = BOLD_csv_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
-        pd.DataFrame(BOLD_mat, columns=list(atlas_df['Node'])).to_csv(os.path.join(fmripost_sub_dir, BOLD_csv_path))
+    bold_space_MNI152NLin2009cAsym_path_ls = glob.glob(os.path.join(sub_bold_dir, '*space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz'))
+    bold_space_MNI152NLin2009cAsym_path_ls.sort()
+    for i in range(len(bold_space_MNI152NLin2009cAsym_path_ls)):
+        bold_path = bold_space_MNI152NLin2009cAsym_path_ls[i]
+        casename = os.path.basename(bold_path).split('_space')[0]
+        ## 对自定义图谱，汇总脑区BOLD信号，计算FC
+        BOLD_dict = {}
+        for atlas_name in atlases_ls:
+            BOLD_csv = os.path.join(fmripost_sub_dir, casename + '_BOLD_' + output_str_dict[atlas_name] + '.csv')
+            BOLD_dict[atlas_name] = pd.read_csv(BOLD_csv, index_col=0)
 
-        ## 计算FC网络
-        cm = ConnectivityMeasure(kind='correlation')
-        corr_mat = cm.fit_transform([BOLD_mat])  # input = list with single matrix
-        corr_mat = corr_mat.squeeze()
-        np.fill_diagonal(corr_mat, 0)
+        # 重组BOLD
+        if args.customized_atlas:
+            BOLD_mat = np.zeros((len(BOLD_dict[atlas_name]), len(atlas_df)))
+            for id in atlas_df['Index']:
+                node = atlas_df.loc[lambda x: x['Index'] == id]['Node']
+                source = atlas_df.loc[lambda x: x['Index'] == id]['Source']
+                BOLD_mat[:,id-1] = BOLD_dict[source.values[0]][node.values[0]]
 
-        ## 保存FC网络为csv
-        FC_csv_path = subject_name + '_FC_mat_' + output_str_dict[atlas_name] + '.csv'
-        FC_csv_path = FC_csv_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
-        pd.DataFrame(corr_mat).to_csv(os.path.join(fmripost_sub_dir, FC_csv_path), index=0,header=0)
+            ## 保存BOLD为csv
+            BOLD_csv_path = casename + '_BOLD_' + output_str_dict[atlas_name] + '.csv'
+            BOLD_csv_path = BOLD_csv_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
+            pd.DataFrame(BOLD_mat, columns=list(atlas_df['Node'])).to_csv(os.path.join(fmripost_sub_dir, BOLD_csv_path))
 
-        ## 保存FC网络为png
-        import matplotlib.pyplot as plt
-        fig, ax = plt.subplots(figsize=(15, 15))
-        display = plotting.plot_matrix(corr_mat,labels=list(atlas_df['Node']),vmax=0.8, vmin=-0.8,reorder=False,figure=fig)
-        FC_png_path = subject_name + '_FC_mat_' + output_str_dict[atlas_name] + '.png'
-        FC_png_path = FC_png_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
-        plt.savefig(os.path.join(fmripost_sub_dir, subject_name + '_FC_mat_' + output_str + '.png'))
-        logger.info('finished fmripost processing ' + subject_name + ' for the customized brain atlas')
+            ## 计算FC网络
+            cm = ConnectivityMeasure(kind='correlation')
+            corr_mat = cm.fit_transform([BOLD_mat])  # input = list with single matrix
+            corr_mat = corr_mat.squeeze()
+            np.fill_diagonal(corr_mat, 0)
+
+            ## 保存FC网络为csv
+            FC_csv_path = casename + '_FC_mat_' + output_str_dict[atlas_name] + '.csv'
+            FC_csv_path = FC_csv_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
+            pd.DataFrame(corr_mat).to_csv(os.path.join(fmripost_sub_dir, FC_csv_path), index=0,header=0)
+
+            ## 保存FC网络为png
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots(figsize=(15, 15))
+            display = plotting.plot_matrix(corr_mat,labels=list(atlas_df['Node']),vmax=0.8, vmin=-0.8,reorder=False,figure=fig)
+            FC_png_path = casename + '_FC_mat_' + output_str_dict[atlas_name] + '.png'
+            FC_png_path = FC_png_path.replace(atlas_name, os.path.basename(args.customized_atlas).split('.')[0], 1)
+            plt.savefig(os.path.join(fmripost_sub_dir, casename + '_FC_mat_' + output_str + '.png'))
+            logger.info('finished fmripost processing ' + casename + ' for the customized brain atlas')
 
     
 end = time.time()
