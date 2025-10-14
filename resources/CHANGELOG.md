@@ -1,5 +1,8 @@
 ## Master
-* Release v1.9
+* Release v2.0
+
+## Release v2.9
+* bug fixed for schaefer lookuptable
 
 ## Release v1.9
 * bug fixed for Limbic_R in schaefer400x7_T1w.csv and schaefer400x7_MNI.csv
